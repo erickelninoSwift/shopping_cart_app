@@ -4,6 +4,7 @@ import { Navbar } from "./components/Navbar";
 import { Cart } from "./pages/cart/Cart";
 import { Shop } from "./pages/shop/Shop";
 import { PRODUCTS } from "./products";
+
 function App() {
   return (
     <div className="App">

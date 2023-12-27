@@ -18,7 +18,7 @@ export const CartItems = ({ data }) => {
           <button onClick={() => deleQuantity(id)}>-</button>
           <input
             type="text"
-            defaultValue={cartItems[id]}
+            value={cartItems[id]}
             onChange={(e) => updateQuantity(e.target.value, id)}
           />
           <button onClick={() => addToCart(id)}>+</button>

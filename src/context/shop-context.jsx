@@ -16,20 +16,22 @@ const getdefaultCart = () => {
 function ShopContextprovider({ children }) {
   const [cartItems, setCartItems] = useState(getdefaultCart());
   const addToCart = (itemID) => {
-    setCartItems((data) => {
-      return { ...data, [itemID]: data[itemID]++ };
-    });
+    setCartItems((data) => ({ ...data, [itemID]: data[itemID] + 1 }));
     console.log(cartItems);
   };
 
   const deleQuantity = (itemD) => {
-    setCartItems((data) => {
-      return { ...data, [itemD]: data[itemD]-- };
-    });
+    setCartItems((data) => ({ ...data, [itemD]: data[itemD] - 1 }));
     console.log(cartItems);
   };
 
-  const contextValue = { cartItems, addToCart, deleQuantity };
+  const updateQuantity = (newAmount, itemsID) => {
+    setCartItems((data) => {
+      return { ...data, [itemsID]: newAmount };
+    });
+  };
+
+  const contextValue = { cartItems, addToCart, deleQuantity, updateQuantity };
   return (
     <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>
   );

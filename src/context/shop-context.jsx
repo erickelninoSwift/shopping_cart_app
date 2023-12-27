@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { createContext } from "react";
 import { PRODUCTS } from "../products";
@@ -19,15 +19,17 @@ function ShopContextprovider({ children }) {
     setCartItems((data) => {
       return { ...data, [itemID]: data[itemID]++ };
     });
+    console.log(cartItems);
   };
 
   const deleQuantity = (itemD) => {
     setCartItems((data) => {
       return { ...data, [itemD]: data[itemD]-- };
     });
+    console.log(cartItems);
   };
 
-  const contextValue = { cartItems, setCartItems, addToCart, deleQuantity };
+  const contextValue = { cartItems, addToCart, deleQuantity };
   return (
     <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>
   );
